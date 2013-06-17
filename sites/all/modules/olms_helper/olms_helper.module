@@ -1,0 +1,126 @@
+<?php
+
+
+
+/**
+ * Implements hook_block_info().
+ */
+function olms_helper_block_info() {
+  $blocks['olms-helper-intro-lms'] = array(
+    'info' => t('Display Quiz Intro'),
+  );
+  $blocks['olms-helper-front-intro'] = array(
+    'info' => t('Frontpage Intro'),
+  );
+  $blocks['olms-helper-signup'] = array(
+    'info' => t('Sign Up'),
+  );
+  
+  return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ */
+function olms_helper_block_view($delta='') {
+  $block = array();
+  switch ($delta) {
+  
+    case 'olms-helper-intro-lms':
+      $block['subject'] = '';
+      $block['content'] = olms_helper_intro_lms();
+      break;
+      
+      case 'olms-helper-signup':
+      $block['subject'] = '';
+      $block['content'] = olms_helper_signup();
+      break;
+      
+    case 'olms-helper-front-intro':
+      $block['subject'] = '';
+      $block['content'] = olms_helper_front_intro();
+      break;
+
+  }
+  return $block;
+}
+
+/**
+ * Creates placeholder block for links above .
+ */
+function olms_helper_intro_lms() {
+ 
+  global $user;
+  $node = node_load(arg(1));
+  $tema = $node->field_tema['und'][0]['value'];
+  $tid = $node->field_test_type['und'][0]['tid'];
+  $term = taxonomy_term_load($tid);
+  $title = $term->name;
+
+ 
+  $html = "<div class='test-type'><h2>$title</h2></div>";
+  $html .= "<div class='test-title'><span><label>Title: </label></span><span>$node->title</span></div>";
+  $html .= "<div class='test-user'><span><label>User: </label></span><span>$user->name</span></div>";
+  return $html;
+}
+
+function olms_helper_signup() {
+ 
+  global $user;
+  $allowed = true;
+  $html='';
+
+
+  $allowed_roles = array('student', 'teacher','administrator');
+  
+  foreach($allowed_roles as $role){
+    $key = array_search($role, $user->roles);
+    if($key){
+      $allowed = False;
+    }
+  }
+  
+  if($allowed){
+    $html = "<a href='http://zeus.zero-effort.net/content/paid-membership'>Sign UP</a>";
+  }
+  
+  return $html;
+}
+
+
+/**
+ * Creates placeholder block for homepage.
+ */
+function olms_helper_front_intro() {
+  // This should be in a theme function, but just a placeholder for
+  // installation profile.
+  return '<div class="block-inner clearfix">
+      <h1 class="block-title" >Welcome to the Clingweb!</h1>
+      <div class="content clearfix">
+        <p style="font-size: 18px; margin-bottom: 4px;">
+        We have created the most comprehensive learning management system available. 
+        This product can be used to:
+        </p>
+        
+        <div id="front-welcome">
+          <ul class="welcome-list">
+            <li>Make presentations</li>
+            <li>Create courses</li>
+            <li>Train end users</li>
+            <li>Assess and certify skills</li>
+            <li>Demonstrate products</li>
+          </ul>
+          Please <a href="http://zeus.zero-effort.net/contact">contact</a> us for more information.
+        </div>
+        
+      <div id="front-video">
+       <iframe src="http://player.vimeo.com/video/51732665" width="377" height="207" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+      </div>
+      
+    </div>';
+}
+
+
+?>
+

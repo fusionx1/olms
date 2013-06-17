@@ -1,0 +1,118 @@
+/* This file will hold styles for the mobile version of your website (mobile first). */
+/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+
+body{
+  background: url('../images/mainbg3.jpg') no-repeat scroll 0 0 #737C7B;
+}
+
+#region-sidebar-first,
+#region-sidebar-second{
+  background-color: #FFFFFF;
+  border-radius: 5px 5px 5px 5px;
+  padding: 10px 0px 10px 0px;
+   box-shadow: 0 0 8px 2px rgba(118, 124, 125, 0.94);
+}
+
+#block-book-navigation{
+  margin-left: 15px;
+}
+
+#region-content {
+    background-color: #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 8px 2px rgba(118, 124, 125, 0.94);
+    padding: 0;
+}
+
+#quiz-view-table {
+  display: none; 
+}
+
+.region-sidebar-second-inner,
+.region-content-inner{
+  padding: 15px;
+}
+
+#block-uc-cart-cart h2.block-title {
+    background: linear-gradient(to bottom, #6DB3F2 0%, #54A3EE 50%, #3690F0 51%, #1E69DE 100%) repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    font-family: helvetica;
+}
+
+#om-maximenu-om-my-menu li a:link {
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    font-family: Helvetica;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+    padding: 3 10px;
+    text-decoration: none;
+}
+
+
+
+
+#om-maximenu-om-my-menu li a.active {
+    background: linear-gradient(to bottom, #6DB3F2 0%, #54A3EE 50%, #3690F0 51%, #1E69DE 100%) repeat scroll 0 0 transparent;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    font-family: helvetica;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 5px;
+    padding: 3px 10px;
+    text-decoration: none;
+}
+
+.region-menu{
+  margin-bottom: 20px;
+}
+
+.region-menu-inner{
+  float: right;
+}
+
+.cart-block-title-bar {
+    color: #ffffff;
+    font-size: 12px;
+}
+
+
+.cart-block-summary {
+    background-color: #FFFFFF;
+    font-size: 12px;
+    margin: 0;
+    padding: 2px;
+}
+#front-welcome {
+    float: left;
+    width: 255px;
+}
+
+#front-video {
+    margin-top: 27px;
+}
+
+#front-video iframe {
+    border: 5px solid #12A5F4;
+    border-radius: 9px 9px 9px 9px;
+    margin-bottom: 16px;
+}
+
+h2.block-title {
+    margin-bottom: 10px;
+    background: linear-gradient(to bottom, #6DB3F2 0%, #54A3EE 50%, #3690F0 51%, #1E69DE 100%) repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    font-family: helvetica;
+    padding: 6px 0 2px 6px;
+}
+
+#block-user-login .form-type-textfield, 
+#block-user-login .form-type-password {
+    margin-left: 29px;
+}
+
+a:link, a:visited {
+    color: #12A5F4;
+}
